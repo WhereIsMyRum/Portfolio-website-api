@@ -16,7 +16,8 @@
     "express": "^4.17.1",
     "node-html-parser": "^1.1.16",
     "redis": "^2.8.0",
-    "requests": "^0.3.0"
+    "requests": "^0.3.0",
+    "aws-sdk": "^2.598.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

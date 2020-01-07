@@ -1,5 +1,6 @@
 module.exports = {
     githubService: require('./github-service'),
     contactService: require('./contact-service'),
-    redis: require('./redis-service')
+    redis: require('./redis-service'),
+    AWS: require('./aws-service')
 };
