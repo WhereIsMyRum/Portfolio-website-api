@@ -1,5 +1,4 @@
 FROM node:latest
-COPY /.aws/  /root/.aws/
 WORKDIR /usr/src/
-COPY package*.json ./
+COPY app/ ./
 RUN npm install
