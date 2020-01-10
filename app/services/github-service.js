@@ -1,4 +1,5 @@
 const axios = require('axios');
+
 const { processReadme } = require('../utils/processReadme');
 
 const githubGetProjectsRequest = async () => {
@@ -11,7 +12,7 @@ const githubGetProjectsRequest = async () => {
             'description': repo.description
         }
     });
-    
+
     return data;
 }
 

@@ -1,3 +1,3 @@
 const redis = require('redis');
 
-module.exports = redis.createClient('redis://cache');
+module.exports = redis.createClient(process.env.REDIS_URL);

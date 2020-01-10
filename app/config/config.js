@@ -1,5 +1,4 @@
-const awsConfig = require('./aws.json');
-
 module.exports = {
-    awsConfig
+    awsConfig: require('./aws.json'),
+    emailingDetails: require('./emailingDetails.json')
 }

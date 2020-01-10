@@ -8,7 +8,7 @@ const getAllProjects = async (req, res, next) => {
             redis.setex(req.originalUrl, 3600, JSON.stringify(data))
         }
         res.send(data);
-    } catch(err) {
+    } catch (err) {
         console.log(err);
         res.sendStatus(500);
     }
@@ -21,7 +21,7 @@ const getProjectDetails = async (req, res, next) => {
             redis.setex(req.originalUrl, 3600, JSON.stringify(data))
         }
         res.send(data);
-    } catch(err) {
+    } catch (err) {
         console.log(err);
         res.sendStatus(500);
     }

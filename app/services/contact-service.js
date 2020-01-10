@@ -1,15 +1,15 @@
-const axios = require('axios');
-const AWS  = require('./aws-service');
+const AWS = require('./aws-service');
+const { emailingDetails } = require('../config/config');
 
 const sendSendgridRequest = async (data) => {
     try {
-          const params = getAWSMessage(data);
-          await new AWS.SES({apiVersion: '2010-12-01'}).sendEmail(params).promise();
-          return true;
-      } catch(err) {
-          console.log(err, err.stack);
-          return false;
-      }
+        const params = getAWSMessage(data);
+        await new AWS.SES({ apiVersion: '2010-12-01' }).sendEmail(params).promise();
+        return true;
+    } catch (err) {
+        console.log(err, err.stack);
+        return false;
+    }
 }
 
 const validateRequest = (data) => {
@@ -25,26 +25,26 @@ const getAWSMessage = (data) => {
         Destination: {
             CcAddresses: [],
             ToAddresses: [
-                'polcik.piotr@gmail.com',
+                emailingDetails.email.recipient,
             ]
         },
         Message: {
             Body: {
                 Html: {
-                    Charset: "UTF-8",
+                    Charset: emailingDetails.email.defaultCharset,
                     Data: data.text
                 },
                 Text: {
-                    Charset: "UTF-8",
+                    Charset: emailingDetails.email.defaultCharset,
                     Data: ""
                 }
             },
             Subject: {
-                Charset: 'UTF-8',
+                Charset: emailingDetails.email.defaultCharset,
                 Data: `${data.subject} - ${data.name}`
             }
         },
-        Source: 'p.polcik1@gmail.com',
+        Source: emailingDetails.email.source,
         ReplyToAddresses: [data.email],
     };
     return params;

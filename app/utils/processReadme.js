@@ -8,7 +8,7 @@ const processReadme = async (content) => {
 const recurseOverDoc = async (elem, data) => {
     elem.childNodes.forEach(el => {
         if (el.tagName) {
-            if(el.tagName === "h1") {
+            if (el.tagName === "h1") {
                 data[el.attributes.class] = {
                     'title': el.rawText
                 }
@@ -25,15 +25,15 @@ const recurseOverDoc = async (elem, data) => {
                         'content': ''
                     })
                 }
-            } 
+            }
             else if (el.tagName === "p") {
-                data['sections'][data['sections'].length-1]['content'] = el.rawText
+                data['sections'][data['sections'].length - 1]['content'] = el.rawText
             } else if (el.tagName === "ul") {
                 data[el.attributes.class] = []
             } else if (el.tagName === "li") {
                 data[el.attributes.class].push(
-                        {"content": el.rawText}
-                    );
+                    { "content": el.rawText }
+                );
             }
             if (el.attributes.hover) {
                 if (Array.isArray(data[el.attributes.class])) {
