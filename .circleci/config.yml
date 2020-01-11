@@ -37,7 +37,7 @@ jobs:
 
 workflows:
   version: 2.1
-  build-and-deploy:
+  Build and deploy:
     jobs:
       - build
       - deploy:
