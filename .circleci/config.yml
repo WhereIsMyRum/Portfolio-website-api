@@ -1,0 +1,48 @@
+version: 2.1
+jobs:
+  build:
+    working_directory: ~/workdir
+    docker:
+      - image: circleci/node:latest
+
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: false
+      - run:
+          name:  Setup Environmental Variables
+          command: |
+            echo 'export IMAGE_NAME=portfolio-backend' >> $BASH_ENV
+
+      - run:
+          name: Build and push Docker image
+          context: PORTOFLIO_CONTEXT
+          command: |
+            echo 'export IMAGE_NAME=portfolio-website' >> $BASH_ENV
+            docker build -t whereismyrum/$IMAGE_NAME:latest .
+            echo $DOCKER_PWD | docker login -u $DOCKER_LOGIN --password-stdin
+            docker  push whereismyrum/$IMAGE_NAME:latest
+
+  deploy:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "a1:a0:4a:f3:82:af:46:2e:bc:de:3d:a8:a1:54:2f:8b"
+      - run:
+          name: Deploy app to AWS EC2 via Docker
+          command: |
+            ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-59-234-24.eu-central-1.compute.amazonaws.com "cd production && /bin/bash deploy_app.sh backend"
+
+workflows:
+  version: 2.1
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+
+
+      
