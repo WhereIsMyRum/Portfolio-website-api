@@ -4,7 +4,7 @@
 <h3 class="why">Why</h3>
 <p class="why">Backend in this application is not technically a necessity, as all there is here are some queries to the github API (well, maybe for the form submission). Nevertheless, making a custom backend allows data parsing on the server, taking the load off the client. Moreover, it allows an easy custom HTML generation based on the README.md file, which allows creating easily customizable detailed page about every project. And allows me to learn some Node and Express = profit.</p>
 <h3 class="what">What</h3>
-<p class="what">A thin backend implemented as a REST API using Express and Node, with just three endpoints for accessing the general list of projects <i>(GET /api/projects)</i>, project's details <i>(GET /api/projects/proj-name)</i> and for submitting the contact form (POST /api/contact).</p>
+<p class="what">A thin backend implemented as a REST API using Express and Node, with just three endpoints for accessing the general list of projects <i>(GET /api/projects)</i>, project's details <i>(GET /api/projects/proj-name)</i> and for submitting the contact form (POST <i>/api/contact</i>).</p>
 <h3 class="how">How</h3>
 <p class="how">From the start the backend component was built with possible future extensibility in mind. That's why the main focus was on organized code structure. The code was divided into routes, which route to corresponding controllers, which then contact with correct services which handle the business logic of the application. In addition to that, a custom middleware for redis caching was implemented, as well as some utility functions, which can be found in the <i>utils</i> folder.</p>
 <h3 class="technologies">Technologies used</h3>
