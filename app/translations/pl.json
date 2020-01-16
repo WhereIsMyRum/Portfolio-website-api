@@ -1,0 +1,52 @@
+[
+    {
+        "id": 167693988,
+        "name": "AEC-hackathon",
+        "description": "Projekt stworzony podczas hackathonu AEC (Architecture, Engineering, Construction)."
+    },
+    {
+        "id": 183306170,
+        "name": "AI-Gra-w-Doom3D",
+        "description": "Implementacja metody A3C uczenia przez wzmacnianie, w której AI mierzy się z grą DOOM 3D."
+    },
+    {
+        "id": 154667195,
+        "name": "Problemy-złożone-obliczeniowo",
+        "description": "Implementacja rozwiązania dla problemu NP-Kompletnego."
+    },
+    {
+        "id": 155680955,
+        "name": "Autentykacja-i-autoryzacja-z-JWT",
+        "description": "Implementacja mechanizmu autentykacji i autoryzacji przy użyciu JWT, w Javie."
+    },
+    {
+        "id": 173825996,
+        "name": "Mancala-AI",
+        "description": "Implementacja gry Mancala oraz przeciwnika AI."
+    },
+    {
+        "id": 105758095,
+        "name": "Monitorowanie-aktywności-mięśniowej",
+        "description": "Zobacz, czego dotyczyła moja praca inżynierska."
+    },
+    {
+        "id": 232062092,
+        "name": "Portfolio-backend",
+        "description": "Backend mojego obecnego portfolio."
+    },
+    {
+        "id": 232061132,
+        "name": "Portfolio-frontend",
+        "description": "Frontend mojego obecnego portfolio."
+    },
+    {
+        "id": 232059614,
+        "name": "Portfolio-website",
+        "description": "Architektura oraz CI/CD mojego obecnego portfolio."
+    },
+    {
+        "id": 208615529,
+        "name": "Video-analysis-pipeline",
+        "description": "Implementacja backendu pozwalajacego na automatyzacje procesu analizowania i cięcia nagrań video."
+    }
+]

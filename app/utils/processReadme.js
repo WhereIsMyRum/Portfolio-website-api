@@ -27,7 +27,6 @@ const recurseOverDoc = (elem, data) => {
                 }
             }
             else if (el.tagName === "p" || el.tagName === "div") {
-                console.log(el.innerHTML)
                 data['sections'][data['sections'].length - 1]['content'] = el.innerHTML
             } else if (el.tagName === "ul") {
                 data[el.attributes.class] = []
