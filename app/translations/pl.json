@@ -6,17 +6,17 @@
     },
     {
         "id": 183306170,
-        "name": "AI-Gra-w-Doom3D",
+        "name": "AI-Playing-Doom3D",
         "description": "Implementacja metody A3C uczenia przez wzmacnianie, w której AI mierzy się z grą DOOM 3D."
     },
     {
         "id": 154667195,
-        "name": "Problemy-złożone-obliczeniowo",
+        "name": "Computationaly-Hard-Problems",
         "description": "Implementacja rozwiązania dla problemu NP-Kompletnego."
     },
     {
         "id": 155680955,
-        "name": "Autentykacja-i-autoryzacja-z-JWT",
+        "name": "JWT-Authentication-and-authorization",
         "description": "Implementacja mechanizmu autentykacji i autoryzacji przy użyciu JWT, w Javie."
     },
     {
@@ -26,7 +26,7 @@
     },
     {
         "id": 105758095,
-        "name": "Monitorowanie-aktywności-mięśniowej",
+        "name": "Monitoring-muscle-activity",
         "description": "Zobacz, czego dotyczyła moja praca inżynierska."
     },
     {
