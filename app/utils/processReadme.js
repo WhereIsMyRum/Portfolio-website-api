@@ -12,7 +12,7 @@ const recurseOverDoc = (elem, data) => {
                 data[el.attributes.class] = {
                     'title': el.rawText
                 }
-            } else if (el.tagName === "h3" && el.rawText !== "Technologies used") {
+            } else if (el.tagName === "h3" && el.attributes.class !== "technologies") {
                 try {
                     data["sections"].push({
                         'title': el.rawText,
