@@ -1,27 +1,27 @@
 <html>
 <body>
 <h1 class="title">Portfolio Backend</h1>
-<h3 class="why">Why</h3>
-<p class="why">Backend in this application is not technically a necessity, as all there is here are some queries to the github API (well, maybe for the form submission). Nevertheless, making a custom backend allows data parsing on the server, taking the load off the client. Moreover, it allows an easy custom HTML generation based on the README.md file, which allows creating easily customizable detailed page about every project. And allows me to learn some Node and Express = profit.</p>
-<h3 class="what">What</h3>
-<div class="what">A thin backend implemented as a REST API using Express and Node, with just three endpoints:
+<h3 class="why">Powód</h3>
+<p class="why">Teoretycznie Backend w niniejszej aplikacji nie jest koniecznością, jako że główna funkcjonalność, poza tłumaczeniem strony, leży w wysyłaniu zapytań do API githuba. Niemniej jednak, użycie backendu pozwala na parsowanie danych na serwerze, minimalizując tym samym zużycie zasobów po stronie klienta. Dodatkowo pozwala na generowanie kodu HTML na podstawie plików README pochodzących z repozytoriów, pozwalając tym samym na tworzenie w łatwy sposób szczegółowych stron poszczególnych projektów. No i dzięki temu mogłem poznać lepiej Node.js oraz framework Express.js.</p>
+<h3 class="what">Cel</h3>
+<div class="what">Zaimplementowanie lekkiego backendu jako REST API przy użyciu Node.js oraz Express.js, posiadającego (na chwilę obecną) jedynie trzy end pointy:
   <ul>
-    <li>General projects list <i>(GET /api/projects)</i></li>
-    <li>Project's details <i>(GET /api/projects/proj-name)</i></li>
-    <li>Submitting contact from <i>(POST  /api/contact)</i></li>
+    <li>Ogólna lista projektów <i>(GET /api/projects)</i></li>
+    <li>Szczegółowy widok projektu <i>(GET /api/projects/proj-name)</i></li>
+    <li>Wysyłanie formularza kontaktowego <i>(POST  /api/contact)</i></li>
   </ul>
 </div>
-<h3 class="how">How</h3>
-<p class="how">From the start the backend component was built with possible future extensibility in mind. That's why the main focus was on organized code structure. The code was divided into routes, which route to corresponding controllers, which then contact with correct services which handle the business logic of the application. In addition to that, a custom middleware for redis caching was implemented, as well as some utility functions, which can be found in the <i>utils</i> folder.</p>
-<h3 class="technologies">Technologies used</h3>
+<h3 class="how">Wykonanie</h3>
+<p class="how">Od samego początku backend budowany był biorąc pod uwagę możliwość przyszłego jego rozszerzania o dodatkowe elementy / funkcjonalność. Elementem bazowym każdego end pointu jest router, które routują zapytania do odpowiednich kontrollerów. Kontrollery kontaktują się z kolei z właściwymi serwisami, które odpowiadają za logikę biznesową API. Dodatkowo zaimplementowany został middleware, który odpowiada za kontakt i pozyskiwanie danych z redis cache, a także dodatkowe funkcje odpowiadające za parsowanie plików README, które znajdują się w folderze <i>utils</i></p>
+<h3 class="technologies">Zastosowane technologie</h3>
 <ul class="technologies">
   <li class="technologies" hover="Node.js">Node.js</li>
   <li class="technologies" hover="Express.js">Express.js</li>
   <li class="technologies" hover="Simple Email Service">AWS SES</li>
 </ul>
-<h3 class="usage">How to use</h3>
-  <p class="usage">Please refer to <i>How to use</i> section of the Portfolio Website project.</p>
+<h3 class="usage">Jak korzystać</h3>
+  <p class="usage">Po dokładne informacje odnośnie uruchmonienia projektu zajrzyj do projektu <i>Portfolio website</i>.<</p>
 <hr>
-<small class="created">Created: December 2019</small>
+<small class="created">Data powstania: December 2019</small>
 </body>
 </html>
