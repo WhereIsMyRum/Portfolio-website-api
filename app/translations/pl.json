@@ -5,14 +5,9 @@
         "description": "Projekt stworzony podczas hackathonu AEC (Architecture, Engineering, Construction)."
     },
     {
-        "id": 183306170,
-        "name": "AI-Playing-Doom3D",
-        "description": "Implementacja metody A3C uczenia przez wzmacnianie, w której AI mierzy się z grą DOOM 3D."
-    },
-    {
         "id": 154667195,
         "name": "Computationaly-Hard-Problems",
-        "description": "Implementacja rozwiązania dla problemu NP-Kompletnego."
+        "description": "Implementacja rozwiązania dla problemu NP-Zupełnego."
     },
     {
         "id": 155680955,
