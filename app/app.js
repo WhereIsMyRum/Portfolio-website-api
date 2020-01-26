@@ -5,6 +5,7 @@ const routes = require('./routes');
 const { redisLookup } = require('./middlewares');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+require('./models');
 
 app.use(redisLookup)
 app.use(cookieParser());
