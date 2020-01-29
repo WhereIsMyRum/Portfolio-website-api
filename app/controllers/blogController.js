@@ -1,9 +1,9 @@
 const { blogService } = require('../services');
-const { getListOfBlogPosts, getBlogPostByTitle, getImageByIdentifier } = blogService
+
 
 const getAllBlogPosts = async (req, res, next) => {
     try {
-        const blogPostsList = await getListOfBlogPosts();
+        const blogPostsList = await blogService.getListOfBlogPosts();
         return res.send(blogPostsList);
     } catch (error) {
         console.log(error);
@@ -13,7 +13,7 @@ const getAllBlogPosts = async (req, res, next) => {
 
 const getBlogPost = async (req, res, next) => {
     try {
-        const blogPost = await getBlogPostByTitle(req.params.title);
+        const blogPost = await blogService.getBlogPostByTitle(req.params.title);
         return res.send(blogPost);
     } catch (error) {
         console.log(error);
@@ -23,8 +23,18 @@ const getBlogPost = async (req, res, next) => {
 
 const getImage = async (req, res, next) => {
     try {
-        const image = await getImageByIdentifier(req.params.postTitle, req.params.identifier);
-        return res.send(image);
+        const image = await blogService.getImageByIdentifier(req.params.postTitle, req.params.identifier);
+        return res.send(image.Body);
+    } catch(error) {
+        console.log(error);
+        return res.sendStatus(500);
+    }
+}
+
+const getThumbImage = async (req, res, next) => {
+    try {
+        const image = await blogService.getPostThumbImage(req.params.postTitle);
+        return res.send(image.Body);
     } catch(error) {
         console.log(error);
         return res.sendStatus(500);
@@ -34,5 +44,6 @@ const getImage = async (req, res, next) => {
 module.exports = {
     getAllBlogPosts,
     getBlogPost,
-    getImage
+    getImage,
+    getThumbImage
 };

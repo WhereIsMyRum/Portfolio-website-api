@@ -5,14 +5,14 @@ const ImageSchema = new mongoose.Schema({
             type: String,
             required: "Required",
         },
-        url: {
-            type: String,
-            required: "Required"
-        },
         description: {
             type: String,
             required: "Required"
         },
+        extension: {
+            type: String,
+            required: "Required"
+        }
     },
     {
         toJSON: {
