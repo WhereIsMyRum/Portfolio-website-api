@@ -7,10 +7,8 @@ const redisLookup = (req, res, next) => {
         try {
             redis.get(req.originalUrl + lang, (err, result) => {
                 if (result) {
-                    console.log("redis hit")
                     res.send(result);
                 } else {
-                    console.log("redis not hit")
                     next();
                 }
             })

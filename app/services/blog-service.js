@@ -5,7 +5,7 @@ const { s3config } = require('../config/config');
 
 
 const getListOfBlogPosts = async () => {
-    return blogPost.find({}).select('title description thumb created');
+    return blogPost.find({}).select('title description category thumb created tags');
 }
 
 const getBlogPostThumbByTitle = async (title) => {

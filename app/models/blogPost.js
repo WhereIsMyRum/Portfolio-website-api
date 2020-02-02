@@ -10,6 +10,10 @@ const BlogPostSchema = new mongoose.Schema({
             type: String,
             required: "Required"
         },
+        category: {
+            type: String,
+            required: "Required"
+        },
         thumb: {
             type: ImageSchema,
             required: "Required"
@@ -22,14 +26,8 @@ const BlogPostSchema = new mongoose.Schema({
             type: String,
             required: "Required"
         },
-        images: [ImageSchema]
-    },
-    {
-        toJSON: {
-            transform: (doc, ret) => {
-                delete ret._id;
-            }
-        }
+        images: [ImageSchema],
+        tags: []
     }
 )
 
