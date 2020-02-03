@@ -1,5 +1,6 @@
 const { githubService, redis } = require('../services');
 const { githubGetProjectsRequest, githubGetProjectDetials } = githubService;
+const { getLangFromCookie } = require('../utils/cookies');
 
 const getAllProjects = async (req, res, next) => {
     try {
@@ -29,9 +30,6 @@ const getProjectDetails = async (req, res, next) => {
     }
 }
 
-const getLangFromCookie = (req) => {
-    return req.cookies.lang ? req.cookies.lang : "en";
-}
 
 module.exports = {
     getAllProjects,
