@@ -39,10 +39,15 @@ workflows:
   version: 2.1
   Build and deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - master
       - deploy:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - build
-
-
-      

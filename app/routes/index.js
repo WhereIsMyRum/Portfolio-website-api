@@ -11,6 +11,11 @@ router.get('/blog/posts/:title', blogController.getBlogPost);
 router.get('/blog/images/:postTitle/thumb', blogController.getThumbImage);
 router.get('/blog/images/:postTitle/:identifier', blogController.getImage);
 
+router.post('/blog/subscribe', blogController.postSubscribe);
+router.post('/blog/posts/:postTitle/comments', blogController.postComment);
+
+router.patch('/blog/activate', blogController.patchActivate);
+
 router.post('/contact', contactController.sendEmail);
 router.options('/contact');
 

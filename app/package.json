@@ -19,7 +19,8 @@
     "requests": "^0.3.0",
     "aws-sdk": "^2.598.0",
     "cookie-parser": "^1.4.4",
-    "mongoose": "^5.8.9"
+    "mongoose": "^5.8.9",
+    "md5": "^2.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

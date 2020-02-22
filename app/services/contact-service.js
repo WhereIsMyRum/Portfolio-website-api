@@ -25,7 +25,7 @@ const getAWSMessage = (data) => {
         Destination: {
             CcAddresses: [],
             ToAddresses: [
-                emailingDetails.email.recipient,
+                data.recipient
             ]
         },
         Message: {
@@ -41,7 +41,7 @@ const getAWSMessage = (data) => {
             },
             Subject: {
                 Charset: emailingDetails.email.defaultCharset,
-                Data: `${data.subject} - ${data.name}`
+                Data: data.subject
             }
         },
         Source: emailingDetails.email.source,

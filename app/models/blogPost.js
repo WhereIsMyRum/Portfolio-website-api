@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const ImageSchema = require('./image');
+const ColorsSchema = require('./colors');
+const CommentSchema = require('./comment');
 
 const BlogPostSchema = new mongoose.Schema({
         title: {
@@ -26,8 +28,12 @@ const BlogPostSchema = new mongoose.Schema({
             type: String,
             required: "Required"
         },
+        colorScheme: {
+            type: ColorsSchema
+        },
         images: [ImageSchema],
-        tags: []
+        tags: [],
+        comments: [CommentSchema]
     }
 )
 

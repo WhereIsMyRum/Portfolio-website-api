@@ -5,7 +5,7 @@ const { s3config } = require('../config/config');
 
 
 const getListOfBlogPosts = async () => {
-    return blogPost.find({}).select('title description category thumb created tags');
+    return blogPost.find({}).select('title description category thumb created colorScheme tags');
 }
 
 const getBlogPostThumbByTitle = async (title) => {
@@ -13,7 +13,9 @@ const getBlogPostThumbByTitle = async (title) => {
 }
 
 const getBlogPostByTitle = async (title) => {
-    return blogPost.where({"title":title}).findOne({}).select('title created fullText images');
+    const post = await blogPost.where({"title":title}).findOne({}).select('title thumb created fullText colorScheme images comments');
+    post.comments = filterComments(post.comments);
+    return post;
 }
 
 const getPostThumbImage = async (title) => {
@@ -32,11 +34,46 @@ const getImageByIdentifier = async (title, identifier, extension = null) => {
     const s3 = new AWS.S3();
 
     return s3.getObject(params).promise();
+};
+
+
+const postComment = async (data, postTitle) => {
+    let post = await blogPost.where({"title": postTitle}).findOne({});
+    const newComment = {
+        nick: data.nick ? data.nick : 'Anonymous',
+        text: data.text,
+        date: new Date().toLocaleString(),
+        isApproved: false
+    }
+    post.comments = [...post.comments, newComment];
+    post.comments.sort((a,b) => new Date(b.date) - new Date(a.date));
+    post.save();
+    return filterComments(post.comments);
 }
+
+const filterComments = (comments) => {
+    return comments.filter(comment => {
+        if (comment.isApproved) {
+            return comments;
+        }
+    })
+}
+
+const validate = (data) => {
+    if (data.honeynick || data.honeytext) {
+        return false;
+    }
+
+    return true;
+};
+
+
 
 module.exports = {
     getListOfBlogPosts,
     getBlogPostByTitle,
     getImageByIdentifier,
-    getPostThumbImage
+    getPostThumbImage,
+    postComment,
+    validate
 }
