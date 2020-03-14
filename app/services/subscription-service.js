@@ -38,7 +38,7 @@ const createSubscriber = async (data) => {
 };
 
 const getEmailActivationLink = (subscriber) => {
-    return `${process.env.ROOT_URL}/blog/activate?email=${subscriber.email}&key=${subscriber.activationKey}`
+    return `${process.env.BLOG_URL}/blog/activate?email=${subscriber.email}&key=${subscriber.activationKey}`
 };
 
 const getEmailActivationText = (subscriber) => {

@@ -5,7 +5,7 @@ const { s3config } = require('../config/config');
 
 
 const getListOfBlogPosts = async () => {
-    return blogPost.find({}).select('title description category thumb created colorScheme tags');
+    return blogPost.find({published: true}).select('title description category thumb created colorScheme tags');
 }
 
 const getBlogPostThumbByTitle = async (title) => {

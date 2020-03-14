@@ -52,6 +52,7 @@ const postSubscribe = async (req, res, next) => {
         if (validatedObject.valid) {
             const subscriber = await subscriptionService.createSubscriber(req.body);
             if (subscriber) {
+                console.log("sending sendgrid request");
                 const confirmationEmailData = subscriptionService.getConfirmationEmailData(subscriber)
                 sendSendgridRequest(confirmationEmailData);
                 return res.sendStatus(200);

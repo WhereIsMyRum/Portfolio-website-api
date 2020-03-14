@@ -24,6 +24,11 @@ const BlogPostSchema = new mongoose.Schema({
             type: Date,
             required: "Required"
         },
+        published: {
+            type: Boolean,
+            require: "Required",
+            default: false
+        },
         fullText: {
             type: String,
             required: "Required"
