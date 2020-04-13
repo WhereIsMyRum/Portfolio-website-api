@@ -3,7 +3,7 @@ const { getLangFromCookie } = require('../utils/cookies');
 
 const redisLookup = (req, res, next) => {
     if (req.originalUrl) {
-        const lang = getLangFromCookie(req);
+        const lang = getLangFromCookie(req) ? getLangFromCookie(req) : 'en';
         try {
             redis.get(req.originalUrl + lang, (err, result) => {
                 if (result) {

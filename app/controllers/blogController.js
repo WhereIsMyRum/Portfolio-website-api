@@ -28,7 +28,7 @@ const getBlogPost = async (req, res, next) => {
 
 const getImage = async (req, res, next) => {
     try {
-        const image = await blogService.getImageByIdentifier(req.params.postTitle, req.params.identifier);
+        const image = await blogService.getImageByIdentifier(req.params.title, req.params.identifier, req.query.ext);
         return res.send(image.Body);
     } catch(error) {
         console.log(error);
@@ -38,7 +38,7 @@ const getImage = async (req, res, next) => {
 
 const getThumbImage = async (req, res, next) => {
     try {
-        const image = await blogService.getPostThumbImage(req.params.postTitle);
+        const image = await blogService.getPostThumbImage(req.params.title);
         return res.send(image.Body);
     } catch(error) {
         console.log(error);
@@ -46,13 +46,47 @@ const getThumbImage = async (req, res, next) => {
     }
 };
 
+const getComments = async (req, res, next) => {
+    try {
+        const comments = await blogService.getComments(req.params.title, req.query)
+        return res.send(comments);
+    } catch(error) {
+        console.log(error);
+        return res.sendStatus(500);
+    }
+};
+
+const getExternalPosts = async (req, res, next) => {
+    try {
+        const externalPosts = await blogService.getExternalPosts();
+        res.send(externalPosts);
+    } catch(error) {
+        console.log(error);
+        return res.sendStatus(500);
+    }
+}
+
+const postComment = async (req, res, next) => {
+    try {
+        if (blogService.validate(req.body)) {
+            const comments = await blogService.postComment(req.body, req.params.title);
+            res.send(comments);
+        } else {
+            return res.sendStatus(200);
+        }
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+};
+
+
 const postSubscribe = async (req, res, next) => {
     try {
         const validatedObject = await subscriptionService.validateRequest(req.body);
         if (validatedObject.valid) {
             const subscriber = await subscriptionService.createSubscriber(req.body);
             if (subscriber) {
-                console.log("sending sendgrid request");
                 const confirmationEmailData = subscriptionService.getConfirmationEmailData(subscriber)
                 sendSendgridRequest(confirmationEmailData);
                 return res.sendStatus(200);
@@ -78,20 +112,6 @@ const postSubscribe = async (req, res, next) => {
     }
 };
 
-const postComment = async (req, res, next) => {
-    try {
-        if (blogService.validate(req.body)) {
-            const comments = await blogService.postComment(req.body, req.params.postTitle);
-            res.send(comments);
-        } else {
-            return res.sendStatus(200);
-        }
-    } catch (error) {
-        console.log(error);
-        res.sendStatus(500);
-    }
-};
-
 const patchActivate = async (req, res, next) => {
     try {
         if(await subscriptionService.activateEmail(req.body)) {
@@ -113,5 +133,7 @@ module.exports = {
     getThumbImage,
     postSubscribe,
     patchActivate,
-    postComment
+    getComments,
+    postComment,
+    getExternalPosts
 };
