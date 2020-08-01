@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1 class="title">Portfolio Backend</h1>
+<h1 class="title">Portfolio Website API</h1>
 <h3 class="why">Powód</h3>
 <p class="why">Teoretycznie Backend w niniejszej aplikacji nie jest koniecznością, jako że główna funkcjonalność, poza tłumaczeniem strony, leży w wysyłaniu zapytań do API githuba. Niemniej jednak, użycie backendu pozwala na parsowanie danych na serwerze, minimalizując tym samym zużycie zasobów po stronie klienta. Dodatkowo pozwala na generowanie kodu HTML na podstawie plików README pochodzących z repozytoriów, pozwalając tym samym na tworzenie w łatwy sposób szczegółowych stron poszczególnych projektów. No i dzięki temu mogłem poznać lepiej Node.js oraz framework Express.js.</p>
 <h3 class="what">Cel</h3>

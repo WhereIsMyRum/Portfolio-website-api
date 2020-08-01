@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1 class="title">Portfolio Backend</h1>
+<h1 class="title">Portfolio Website API</h1>
 <h3 class="why">Why</h3>
 <p class="why">Backend in this application is not technically a necessity, as all there is here are some queries to the github API (well, maybe for the form submission). Nevertheless, making a custom backend allows data parsing on the server, taking the load off the client. Moreover, it allows an easy custom HTML generation based on the README.md file, which allows creating easily customizable detailed page about every project. And allows me to learn some Node and Express = profit.</p>
 <h3 class="what">What</h3>

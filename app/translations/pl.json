@@ -31,17 +31,17 @@
     },
     {
         "id": 232062092,
-        "name": "Portfolio-backend",
-        "description": "Backend mojego obecnego portfolio."
+        "name": "Portfolio-website-api",
+        "description": "Backend API mojego obecnego portfolio."
     },
     {
         "id": 232061132,
-        "name": "Portfolio-frontend",
+        "name": "Portfolio-website-frontend",
         "description": "Frontend mojego obecnego portfolio."
     },
     {
         "id": 232059614,
-        "name": "Portfolio-website",
+        "name": "Portfolio-website-proxy",
         "description": "Architektura oraz CI/CD mojego obecnego portfolio."
     },
     {
