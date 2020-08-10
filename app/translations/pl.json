@@ -15,6 +15,11 @@
         "description": "Implementacja rozwiązania dla problemu NP-Zupełnego."
     },
     {
+        "id": 285288237,
+        "name": "DBA-API-adapter",
+        "description": "Web scraper eksponujący Web API dla portalu dba.dk zwracający dane w postaci JSON."
+    },
+    {
         "id": 155680955,
         "name": "JWT-Authentication-and-authorization",
         "description": "Implementacja mechanizmu autentykacji i autoryzacji przy użyciu JWT, w Javie."
