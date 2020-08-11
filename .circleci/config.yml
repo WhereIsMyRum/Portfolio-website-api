@@ -33,7 +33,7 @@ jobs:
       - run:
           name: Deploy app to AWS EC2 via Docker
           command: |
-            ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-59-234-24.eu-central-1.compute.amazonaws.com "cd production && /bin/bash deploy_app.sh backend"
+            ssh -o StrictHostKeyChecking=no ubuntu@ec2-52-59-234-24.eu-central-1.compute.amazonaws.com "cd production && /bin/bash deploy_app.sh website-api"
 
 workflows:
   version: 2.1
