@@ -30,17 +30,16 @@ const recurseOverDoc = (elem, data) => {
                 data['sections'][data['sections'].length - 1]['content'] = el.innerHTML
             } else if (el.tagName === "ul") {
                 data[el.attributes.class] = []
-            } else if (el.tagName === "li") { 
+            } else if (el.tagName === "li") {
                 data[el.attributes.class].push(
                     { "content": el.rawText }
                 );
             }
             if (el.attributes.hover) {
                 if (Array.isArray(data[el.attributes.class])) {
-                    const index = data[el.attributes.class].length - 1 >= 0 ? data[el.attributes.class].length - 1 : 0;
-                    data[el.attributes.class][index].hover = el.attributes.hover;
+                    data[el.attributes.class][data[el.attributes.class].length - 1].hover = el.attributes.hover
                 } else {
-                    data[el.attributes.class].hover = el.attributes.hover;
+                    data[el.attributes.class].hover = el.attributes.hover
                 }
             }
             if (el.childNodes.length > 1) {
