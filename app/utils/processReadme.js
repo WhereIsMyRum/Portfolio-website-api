@@ -8,13 +8,11 @@ const processReadme = async (content) => {
 const recurseOverDoc = (elem, data) => {
     elem.childNodes.forEach(el => {
         if (el.tagName) {
-            console.log(el.attributes.class);
-            console.log(el.classNames[0]);
             if (el.tagName === "h1") {
-                data[el.attributes.class] = {
+                data[el.classNames[0]] = {
                     'title': el.rawText
                 }
-            } else if (el.tagName === "h3" && el.attributes.class !== "technologies") {
+            } else if (el.tagName === "h3" && el.classNames[0] !== "technologies") {
                 try {
                     data["sections"].push({
                         'title': el.rawText,
@@ -31,17 +29,17 @@ const recurseOverDoc = (elem, data) => {
             else if (el.tagName === "p" || el.tagName === "div") {
                 data['sections'][data['sections'].length - 1]['content'] = el.innerHTML
             } else if (el.tagName === "ul") {
-                data[el.attributes.class] = []
+                data[el.classNames[0]] = []
             } else if (el.tagName === "li") {
-                data[el.attributes.class].push(
+                data[el.classNames[0]].push(
                     { "content": el.rawText }
                 );
             }
             if (el.attributes.hover) {
-                if (Array.isArray(data[el.attributes.class])) {
-                    data[el.attributes.class][data[el.attributes.class].length - 1].hover = el.attributes.hover
+                if (Array.isArray(data[el.classNames[0]])) {
+                    data[el.classNames[0]][data[el.classNames[0]].length - 1].hover = el.attributes.hover
                 } else {
-                    data[el.attributes.class].hover = el.attributes.hover
+                    data[el.classNames[0]].hover = el.attributes.hover
                 }
             }
             if (el.childNodes.length > 1) {
