@@ -9,7 +9,7 @@ const recurseOverDoc = (elem, data) => {
     elem.childNodes.forEach(el => {
         if (el.tagName) {
             console.log(el.attributes.class);
-            console.log(el.attributes.classNames[0]);
+            console.log(el.classNames[0]);
             if (el.tagName === "h1") {
                 data[el.attributes.class] = {
                     'title': el.rawText
