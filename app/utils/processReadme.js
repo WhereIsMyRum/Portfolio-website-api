@@ -8,6 +8,7 @@ const processReadme = async (content) => {
 const recurseOverDoc = (elem, data) => {
     elem.childNodes.forEach(el => {
         if (el.tagName) {
+            console.log(el.classNames);
             if (el.tagName === "h1") {
                 data[el.classNames[0]] = {
                     'title': el.rawText
