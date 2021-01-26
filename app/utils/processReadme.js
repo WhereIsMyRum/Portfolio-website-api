@@ -1,6 +1,7 @@
 const { parse } = require('node-html-parser');
 
 const processReadme = async (content) => {
+    console.log(Buffer.from(content, 'base64').toString('utf-8'));
     const root = parse(Buffer.from(content, 'base64').toString('utf-8'));
     return recurseOverDoc(root.querySelector('body'), {})
 }
