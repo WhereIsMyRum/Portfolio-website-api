@@ -38,9 +38,10 @@ const recurseOverDoc = (elem, data) => {
             }
             if (el.attributes.hover) {
                 if (Array.isArray(data[el.attributes.class])) {
-                    data[el.attributes.class][data[el.attributes.class].length - 1].hover = el.attributes.hover
+                    const index = data[el.attributes.class].length - 1 >= 0 ? data[el.attributes.class].length - 1 : 0;
+                    data[el.attributes.class][data[el.attributes.class].length - 1].hover = el.attributes.hover;
                 } else {
-                    data[el.attributes.class].hover = el.attributes.hover
+                    data[el.attributes.class].hover = el.attributes.hover;
                 }
             }
             if (el.childNodes.length > 1) {
