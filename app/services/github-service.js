@@ -50,6 +50,7 @@ const githubGetProjectDetials = async (name, lang) => {
 
     try {
         const data = await res.data;
+        console.log(data);
         parsedReadme = await processReadme(data['content']);
         parsedReadme.title['url'] = data._links.html.match(/(https:\/\/github\.com\/WhereIsMyRum\/[0-9a-zA-Z-_]*\/)/g)[0];
     } catch (err) {
