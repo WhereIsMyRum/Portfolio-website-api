@@ -8,6 +8,7 @@ const processReadme = async (content) => {
 const recurseOverDoc = (elem, data) => {
     elem.childNodes.forEach(el => {
         if (el.tagName) {
+            console.log(el);
             if (el.tagName === "h1") {
                 data[el.attributes.class] = {
                     'title': el.rawText
@@ -39,6 +40,7 @@ const recurseOverDoc = (elem, data) => {
                 if (Array.isArray(data[el.attributes.class])) {
                     data[el.attributes.class][data[el.attributes.class].length - 1].hover = el.attributes.hover
                 } else {
+                    console.log(el.attributes.classe);
                     data[el.attributes.class].hover = el.attributes.hover
                 }
             }
