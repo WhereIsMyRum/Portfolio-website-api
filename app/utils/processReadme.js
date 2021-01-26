@@ -8,7 +8,6 @@ const processReadme = async (content) => {
 const recurseOverDoc = (elem, data) => {
     elem.childNodes.forEach(el => {
         if (el.tagName) {
-            data[el.attributes.class] = [];
             if (el.tagName === "h1") {
                 data[el.attributes.class] = {
                     'title': el.rawText
@@ -31,7 +30,7 @@ const recurseOverDoc = (elem, data) => {
                 data['sections'][data['sections'].length - 1]['content'] = el.innerHTML
             } else if (el.tagName === "ul") {
                 data[el.attributes.class] = []
-            } else if (el.tagName === "li") {
+            } else if (el.tagName === "li") { 
                 data[el.attributes.class].push(
                     { "content": el.rawText }
                 );
