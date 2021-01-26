@@ -53,5 +53,10 @@
         "id": 208615529,
         "name": "Video-analysis-pipeline",
         "description": "Implementacja backendu pozwalajacego na automatyzacje procesu analizowania i cięcia nagrań video."
+    },
+    {
+        "id": 298561689,
+        "name": "Time-Leak-Vulnerabilities-Checker",
+        "description": "Mój projekt magisterski, dotyczący bezpośrednio zagadnienia bezpieczeństwa w procesach biznesowych."
     }
 ]
