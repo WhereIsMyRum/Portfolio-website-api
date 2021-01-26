@@ -1,12 +1,12 @@
 const { parse } = require('node-html-parser');
 
 const processReadme = async (content) => {
-    console.log(Buffer.from(content, 'base64').toString('utf-8'));
     const root = parse(Buffer.from(content, 'base64').toString('utf-8'));
     return recurseOverDoc(root.querySelector('body'), {})
 }
 
 const recurseOverDoc = (elem, data) => {
+    console.log(elem);
     elem.childNodes.forEach(el => {
         if (el.tagName) {
             if (el.tagName === "h1") {
