@@ -19,7 +19,8 @@ const githubGetProjectsRequest = async (lang) => {
                 'description': repo.description
             }
         });
-    } catch {
+    } catch (err) {
+        console.log('Retrieve all projects error', err)
         throw 500;
     }
     return data;
@@ -41,7 +42,8 @@ const githubGetProjectDetials = async (name, lang) => {
         try {
             url = url_base + `/${name}/readme`;
             res = await axios.get(url);
-        } catch {
+        } catch (err) {
+            console.log('Project details retrieving error', err, url);
             throw 500;
         }
     }
@@ -50,7 +52,8 @@ const githubGetProjectDetials = async (name, lang) => {
         const data = await res.data;
         parsedReadme = await processReadme(data['content']);
         parsedReadme.title['url'] = data._links.html.match(/(https:\/\/github\.com\/WhereIsMyRum\/[0-9a-zA-Z-_]*\/)/g)[0];
-    } catch {
+    } catch (err) {
+        console.log('Project details parsing error', err);
         throw 500;
     }
 
